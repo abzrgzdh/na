@@ -1,0 +1,11 @@
+build/
+
+compile_commands.json
+
+.cache/
+*.dSYM/
+
+TAGS
+
+/nob.old
+/nob

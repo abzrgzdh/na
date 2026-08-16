@@ -1,0 +1,23 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: Build and test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build nob
+        # -D_POSIX_C_SOURCE=200809L exposes the POSIX APIs that nob.h uses,
+        # including: clock_gettime, CLOCK_MONOTONIC, nanosleep, lstat, readlink,
+        # etc.
+        run: cc -std=c2x -D_POSIX_C_SOURCE=200809L nob.c -o nob
+
+      - name: Build and run tests
+        run: ./nob test

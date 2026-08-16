@@ -1,0 +1,1 @@
+--regex-C=/^[ \t]*DEFINE_FUNC[A-Za-z0-9_]*\(([A-Za-z_][A-Za-z0-9_]*)/\1/f/
